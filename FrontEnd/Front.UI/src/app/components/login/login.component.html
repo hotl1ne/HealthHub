@@ -1,0 +1,56 @@
+<div class = "login-container">
+    <div class = "left-panel">
+        <h1>Sign in to get more features</h1>
+        <h4>Don`t have an account?Register <a href="/Registration">here</a></h4>
+    </div>
+    <div class = "centred-panel">
+        <img src = "\assets\img\login.png" class="img">
+    </div>
+    <div class = "right-panel">
+        <div class = "login-panel">
+            <h1>Welcome Back</h1>
+            <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
+                <div class="email">
+                    <div class="input-Email">
+                        <input type="text" id="username" formControlName="username" class="form-control" placeholder="Email"/>
+                    </div>
+                    <div class="req-em">
+                        <em *ngIf="validateControl('username') && hasError('username', 'required')">Username is required</em>
+                    </div>
+                </div>
+                <div class="password">
+                    <div class="input-Password">
+                        <input *ngIf = "showPassword; else TextType" type="password" id="password" formControlName="password" class="form-control" placeholder="Password"/>
+                        <button (click)="handleButtonClick()">
+                            <img class="img-bth" [src]="showPassword? 'assets/img/eye_hide.png' : 'assets/img/eye_show.png'" alt="eye-photo">
+                        </button>
+                    </div>
+                    <ng-template #TextType>
+                        <input type="text" id="password" formControlName="password" class="form-control" placeholder="Password"/>
+                    </ng-template>
+                    <div class="req-passwd">
+                        <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                    </div>
+                </div>
+                <div class="login-button">
+                    <div class="button">
+                        <button type="submit" class="bth" [disabled]="!loginForm.valid">Log in</button>
+                    </div>
+                    <div class="req-em">
+                        <em *ngIf="showError">{{errorMessage}}</em>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="register-with">
+            <div class="continue-text">
+              <p class = "text">Or continue with</p>
+            </div>
+            <div class="services">
+                <button (click)="loginWithGoogle()" class="button">
+                  <img class = "button-img-google" alt="google" src = "assets/img/Google.png">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

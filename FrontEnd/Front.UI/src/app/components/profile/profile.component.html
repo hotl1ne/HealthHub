@@ -1,0 +1,65 @@
+<div *ngIf = "userIsLogin()" class="container">
+    <header class="header">
+        <div class="logo">
+            <a href = '#' class="button_logo">
+                <img src="assets\img\Logo.svg" alt="logo" class="logo_img">
+            </a>
+        </div>
+        <div class="logout">
+            <button (click) = "logOut()" class="logout_btn">Log out</button>
+        </div>
+    </header>
+    <img src="assets\img\Ellipse 1.png" alt="back_img" class="back_img1">
+    <img src="assets\img\Ellipse 1.png" alt="back_img" class="back_img">
+    <div class="profile_photo">
+        <div class="profile_photo_container">
+        <div class="profile_photo_content">
+            <img [src]="url" alt="photo" class="photo">
+            <p>{{username}}</p>
+         </div>
+         <div class="email">
+            <div class="email_input">
+                <label for="email_i" class="labels">Email</label>
+                <input [value] ="email" id = "email_i" type="email" class="input">
+            </div>
+        </div>
+        </div>
+    </div>
+    <form [formGroup] = "profileForm" class = "profileForm" (ngSubmit)="formCheck(profileForm.value)"> 
+        <div class="form_container">
+        <div class="password">
+            <div class="password_input">
+                <label for="password_i" class="labels">Password</label>
+                <input formControlName = "password" id = "password_i" type="password" class="input">
+            </div>
+        </div>
+        <div class="adress">
+            <div class="adress_input">
+                <label for="adress_i" class="labels">Adress</label>
+                <input formControlName = "adress" id="adress_i" type="text" class="input">
+            </div>
+        </div>
+        <div class="workplace">
+            <div class="workplace_input">
+                <label for="workplace_i" class="labels">Workpalce</label>
+                <input formControlName = "workplace" id = "workplace_i" type="text" class="input">
+            </div>
+        </div>
+        <div class="phone">
+            <div class="phone_input">
+                <label for="phone_i" class="labels">Phone</label>
+                <input formControlName = "phone" id = "phone_i" type="text" class="input">
+            </div>
+        </div>
+        <div class="certificate">
+            <div class="certificate_input">
+                <label for="certificate_i" class="labels">Certificate</label>
+                <input id = "certificate_i" type="file" class="input_c">
+            </div>
+        </div>
+        <div class="button">
+            <button [disabled]="!profileForm.valid" class="save">Save</button>
+        </div>
+        </div>
+    </form>
+</div>

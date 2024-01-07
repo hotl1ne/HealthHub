@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FrontUI</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="#!" class="logo">
+            <img class="logo_img" src="/assets/img/Logo.svg" alt="logo">
+          </a>
+          <nav class="menu">
+            <button class="menu_btn">
+              <span class="menu_btn-span"></span>
+              <span class="menu_btn-span"></span>
+              <span class="menu_btn-span"></span>
+            </button>
+            <ul class="menu_list">
+              <li class="menu_list-item">
+                <a href="#!" class="menu_list-link">Home</a>
+              </li>
+              <li class="menu_list-item">
+                <a href="#!" class="menu_list-link">About Us</a>
+              </li>
+              <li class="menu_list-item">
+                <a href="#!" class="menu_list-link">How to use</a>
+              </li>
+              <li class="menu_list-item">
+                <button class="menu_list-button">
+                  <p class="menu_list-button_text">
+                    <a href="Login" class="">Log in</a>
+                  </p>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container-info">
+          <div class="img1">
+            <form action="#" class="solutions_form">
+              <div class="placeholder_with_buttons">
+                <input (input)="performSearch($event)"  id = "text" class="form_input" type="text" placeholder="Search your product">
+                <div class="form_buttons">
+                  <button class="form_button">
+                    <img src="assets/img/form_button_icon-1.svg" alt="">
+                  </button>
+                  <button class="form_button">
+                    <img src="assets/img/form_button_icon-2.svg" alt="">
+                  </button>
+                  <button class="form_button">
+                    <img src="assets/img/form_button_icon-3.svg" alt="">
+                  </button>
+                </div>
+              </div>
+              <div class="found_foods">
+                <div class="food" *ngFor="let food of search_result">
+                  <a [href]="'/Detail/' + food.id">
+                    <p class="name">{{ food.name }}</p>
+                  </a>
+                </div>
+              </div>
+            </form>
+              <img src="/assets/img/pizza.jpg" alt="foodPH" class="img">
+          </div>
+        <div class="product">
+            <div class="product-name">
+                <h1 class = "name">{{info?.name}}</h1>
+            </div>
+            <div class="product-info">
+                <h3 class = "info">{{info?.description}}</h3>
+            </div>
+            <div class="nutrition">
+                <div class="proteins">
+                    <img src="assets\img\proteins.png" alt="proteinPH" class="protein">
+                    <h4 class = "Nname">Proteins</h4>
+                    <p class = "count">{{info?.proteins}}</p>
+                </div>
+                <div class="fats">
+                    <img src="/assets/img/fats.png" alt="fatsPH" class="fat">
+                    <h4 class = "Nname">Fats</h4>
+                    <p class = "count">{{info?.fats}}</p>
+                </div>
+                <div class="carbohydrates">
+                    <img src="/assets/img/carbo.png" alt="carboPH" class="carbo">
+                    <h4 class = "Nname">Carbogydrates</h4>
+                    <p class = "count">{{info?.carbohydrates}}</p>
+                </div>
+            </div>
+            <div class="fraza">
+                <h3>Alternative you can try</h3>
+            </div>
+            <div class="horizontal-scroll-container">
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="/assets/img/pizza.jpg" alt="Slide 1"></a>
+                <h5 class = "scroll-name">Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="/assets/img/pizza.jpg" alt="Slide 2"></a>
+                <h5 class = "scroll-name">Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="/assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name">Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name" >Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name" >Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name" >Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name" >Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+              <div class="image1">
+                <a href = "#"><img class = "image1" src="assets/img/pizza.jpg" alt="Slide 3"></a>
+                <h5 class = "scroll-name">Product name</h5>
+                <p class = "scroll-info">Lorem purus sit dolor</p>
+              </div>
+            </div>
+      </div>
+    </div>

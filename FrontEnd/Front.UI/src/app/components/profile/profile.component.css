@@ -1,0 +1,152 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.header{
+    display: flex;
+    max-height: 89px;
+    min-height: 89px;
+    height: 89px;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 20px;
+}
+
+.logo{
+    display: flex;
+}
+
+.logout{
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 50px;
+}
+
+.logout_btn{
+    border: none;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.logout_btn:hover{
+    background-color: rgb(105, 16, 16);    
+}
+
+.logo,
+.logout{
+    display: grid;
+}
+
+.button_logo{
+    border: none;
+    border-radius: 5px;
+    background: none;
+    transition: transform 2s ease;
+}
+
+.logo_img:hover{
+    position: relative;
+    transform: scale(0.9);
+}
+
+img.back_img1{
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+img.back_img {
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 400px;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh; 
+    background:linear-gradient(to right, rgb(24 230 223), rgb(56, 2, 56));
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+.profile_photo
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.profile_photo_container{
+    display: grid;
+}
+
+.photo{
+    border-radius: 10px;
+}
+
+.profileForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_container{
+    display: grid;
+}
+
+.labels{
+    display: flex;
+}
+
+.input{
+    border-radius: 5px;
+    width: 400px;
+    height: 40px;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.input:hover{
+    border: 1px solid black;
+}
+
+.input:focus{
+    border: none;
+    outline: 3px solid rgb(11, 11, 42);
+}
+
+.save{
+    position: relative;
+    left: 330px;
+    border: 2px solid darkolivegreen;
+    height: 30px;
+    width: 60px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: green;
+    transition: background-color 0.3s;
+}
+
+.save:hover{
+    border-radius: 10px;
+    background-color: darkolivegreen;
+}
+
+
+
+

@@ -1,0 +1,162 @@
+<meta name="google-signin-client_id" content="943737304120-abq6qrvf1tu4ufrn8vk4655v4ciapgn2.apps.googleusercontent.com">
+<div class="register-container">
+    <div class="left-panel">
+      <h1>Register to get more features</h1>
+      <h4>Already have an account? Log in <a href="/Login">here</a></h4>
+    </div>
+    <div class="centred-panel">
+      <img src="/assets/img/register.png" class="img">
+    </div>
+    <div class="right-panel">
+      <div class="register-panel">
+        <div class="welcome-text">
+            <h2>Register here</h2>
+        </div>
+        <div *ngIf="slide===0 || slide===1 || slide===2" class = "progress-bar">
+            <progress [value]="progress" max="3"></progress>
+        </div>
+        <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
+          <div class="form-step" *ngIf="slide === 0">
+            <div class="form-field">
+              <input type="text" id="name" formControlName="Username" class="form-control" placeholder="Name" />
+              <div class="form-error">
+                <em *ngIf="validateControl('name') && hasError('name', 'required') || step_error">Name is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="email" id="email" formControlName="Email" class="form-control" placeholder="Email" />
+              <div class="form-error">
+                <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
+                <em *ngIf="validateControl('email') && hasError('email', 'required') || step_error">Email is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <div class="password-input">
+                <input *ngIf="showPassword2; else TextTypePass" type="password" id="password" formControlName="Password" class="form-control" placeholder="Password" />
+                <button (click)="handleButtonClick2()">
+                  <img class="img-bth" [src]="showPassword2 ? 'assets/img/eye_hide.png' : 'assets/img/eye_show.png'" alt="eye-photo">
+                </button>
+              </div>
+              <ng-template #TextTypePass>
+                <input type="text" id="password" formControlName="Password" class="form-control" placeholder="Password" />
+              </ng-template>
+              <div class="form-error">
+                <em *ngIf="validateControl('password') && hasError('password', 'required') || step_error">Password is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <div class="confirmPass-input">
+                <input *ngIf="showPassword; else TextType" type="password" id="confirm" formControlName="passwordConfirmed" class="form-control" placeholder="Repeat password" />
+                <button (click)="handleButtonClick()">
+                  <img class="img-bth" [src]="showPassword ? 'assets/img/eye_hide.png' : 'assets/img/eye_show.png'" alt="eye-photo">
+                </button>
+                <ng-template #TextType>
+                  <input type="text" id="confirm" formControlName="passwordConfirmed" class="form-control" placeholder="Repeat password" />
+                </ng-template>
+              </div>
+              <div class="form-error">
+                <em *ngIf="validateControl('passwordConfirmed') && hasError('passwordConfirmed', 'required') || step_error">Password confirm is required</em>
+              </div>
+              <div class = "form-error">
+                <em *ngIf="passwordsMatchError || step_error">Passwords do not match</em>
+              </div>
+            </div>
+          </div>
+          <div class="form-step" *ngIf="slide === 1">
+            <div class="form-field">
+              <input type="file" id="image" formControlName="Url_Photo" class="form-control" />
+              <div class="form-error">
+                <em *ngIf="validateControl('image') && hasError('image', 'required') || step_error">Photo is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="date" id="birth" formControlName="DateOfBirh" class="form-control" />
+              <div class="form-error">
+                <em *ngIf="validateControl('birth') && hasError('birth', 'required') || step_error">Date of birth is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="text" id="phone" formControlName="Phone" class="form-control" placeholder="Phone" />
+              <div class="form-error">
+                <em *ngIf="validateControl('phone') && hasError('phone', 'required') || step_error">Phone is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="text" id="adress" formControlName="Adress" class="form-control" placeholder="Address" />
+              <div class="form-error">
+                <em *ngIf="validateControl('adress') && hasError('adress', 'required') || step_error">Adress is required</em>
+              </div>
+            </div>
+          </div>
+          <div class="form-step" *ngIf="slide === 2">
+
+
+            <div class="form-field">
+              <input type="text" id="workplace" formControlName="Workplace" class="form-control" placeholder="Your workplace" />
+              <div class="form-error">
+                <em *ngIf="validateControl('workplace') && hasError('workplace', 'required') || step_error">Workplace is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="text" id="rate" formControlName="Rate" min="0" max="10" class="form-control" placeholder="Rate your physical capabilities" />
+              <div class="form-error">
+                <em *ngIf="validateControl('num') && hasError('num', 'required') || step_error">Phone is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="text" id="phone" formControlName="Knowlages" class="form-control" placeholder="Do you have any knowledge in diets" />
+              <div class="form-error">
+                <em *ngIf="validateControl('yon') && hasError('yon', 'required') || step_error">Text is required</em>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="file" id="sertificate" formControlName="Sertificates" class="form-control" placeholder="Certificates" />
+              <div class="form-error">
+                <em *ngIf="validateControl('sertificate') && hasError('sertificate', 'required') || step_error">Sertificate is required</em>
+              </div>
+            </div>
+          </div>
+          <div class="button-container">
+            <div *ngIf="slide === 0" class="button-next">
+              <div class="button-next">
+                <button (click)="next_Step()" class="bth-next">Next</button>
+              </div>
+              <div class="form-error">
+                <em *ngIf="step_error">All fields must be filled</em>
+              </div>
+            </div>
+            <div *ngIf="slide === 1" class="buttons">
+              <div class="button-prev">
+                <button (click)="DecNum()" type="button" class="bth-prev">Prev</button>
+              </div>
+              <div class="button-next">
+                <button (click)="next_Step()" type="button" class="bth-next">Next</button>
+              </div>
+              <div class="form-error">
+                <em *ngIf="step_error">All fields must be filled</em>
+              </div>
+            </div>
+            <div *ngIf="slide === 2" class="buttons">
+                <div class="button-prev">
+                    <button (click)="DecNum()" type="button" class="bth-prev">Prev</button>
+                </div>
+                <div class="but">
+                <button type="submit" class="bth" [disabled]="!registerForm.valid">Register</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="register-with">
+        <div class="continue-text">
+          <p class = "text">Or continue with</p>
+        </div>
+        <div class="services">
+            <button (click) = "registerWithGoogle()" class="button">
+              <img class = "button-img-google" alt="google" src = "assets/img/Google.png">
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
